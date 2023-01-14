@@ -9,7 +9,7 @@ SRCDIR="${GOPATH}/src/github.com/9IT-Full-Service/podloxx-hb/"
 mkdir -p ${GOPATH}/{src,pkg,bin}
 mkdir -p ${SRCDIR}
 # cp main.go ${SRCDIR}
-cp -a .env api cmd go.mod kubernetes logger main.go network scripts structs ui utils version ${SRCDIR}
+cp -av .env api cmd go.mod kubernetes logger main.go network scripts structs ui utils version ${SRCDIR}
 (
     echo ${GOPATH}
     cd ${SRCDIR}
