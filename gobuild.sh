@@ -14,6 +14,6 @@ cp -a .env api cmd go.mod kubernetes logger main.go network scripts structs ui u
     echo ${GOPATH}
     cd ${SRCDIR}
     go mod tidy
-    # go get .
+    go get .
     go install .
 )
