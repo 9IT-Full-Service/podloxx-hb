@@ -1,0 +1,100 @@
+<div class="d-flex w-100">
+  <svg viewBox="0 0 36 36" overflow="visible" class="circular-chart ms-auto" [class.animated]="refreshing">
+    <path
+      class="circle"
+      stroke-dasharray="60, 100"
+      d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831"
+    />
+  </svg>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" [class.active]="currentSortKey === 'podName'">
+          <button class="btn d-flex align-items-center px-0" (click)="sortPods('podName')">
+            POD
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'namespace'">
+          <button class="btn d-flex align-items-center px-0 text-start" (click)="sortPods('namespace')">
+            NAMESPACE
+            <br />
+            (NODE)
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'externalTraffic'">
+          <button class="btn d-flex align-items-center px-0 text-start" (click)="sortPods('externalTraffic')">
+            External
+            <br />
+            (TX/RX)
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'localTraffic'">
+          <button class="btn d-flex align-items-center px-0 text-start" (click)="sortPods('localTraffic')">
+            Internal
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'age'">
+          <button class="btn d-flex align-items-center px-0 text-start" (click)="sortPods('age')">
+            Age
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'connections'">
+          <button class="btn d-flex align-items-center px-0 text-start" (click)="sortPods('connections')">
+            Connections
+            <i
+              class="fa fa-chevron-down ms-2 font-size-xxsmall"
+              [class.dsc]="currentSortDirection === 'DSC'"
+              aria-hidden="true"
+            ></i>
+          </button>
+        </th>
+        <th scope="col" [class.active]="currentSortKey === 'traffic'">
+          <div class="btn d-flex align-items-center px-0 text-start justify-content-start font-weight-light">
+            Traffic
+            <i class="fa fa-chevron-down ms-1 font-size-xsmall" aria-hidden="true"></i>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--/ POD DATA -->
+      <ng-container *ngFor="let podKey of podNames">
+        <tr lox-dashboard-pod-list-item [key]="podKey"></tr>
+      </ng-container>
+      <!--/ EMPTY STATE -->
+      <ng-container *ngIf="podNames.length < 1">
+        <tr lox-dashboard-pod-list-item [key]="podKey" *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]"></tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

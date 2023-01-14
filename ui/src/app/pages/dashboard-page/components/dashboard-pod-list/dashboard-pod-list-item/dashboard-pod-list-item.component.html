@@ -1,0 +1,78 @@
+<!--/ POD -->
+<td>
+  <div
+    class="d-flex flex-column justify-content-center cell-inner text-nowrap text-truncate pod-name"
+    *ngIf="!!pod; else emptystateText"
+  >
+    <span class="text-truncate">{{ pod.podName }}</span>
+  </div>
+</td>
+
+<!--/ NODE -->
+<td>
+  <div class="d-flex flex-column justify-content-center cell-inner namespace" *ngIf="!!pod; else emptystateText">
+    <span class="text-truncate">{{ pod.namespace }}</span>
+    <span class="color-grey-2 font-size-small text-truncate">{{ pod.node }}</span>
+  </div>
+</td>
+
+<!--/ EXTERNAL -->
+<td>
+  <div class="d-flex align-items-center cell-inner" *ngIf="!!pod; else emptystateText">
+    <span class="text-nowrap d-flex align-items-center">
+      {{ pod.transmitBytes - pod.localTransmitBytes | formatBytes }}
+      <i class="fa fa-chevron-up font-size-xxsmall mx-1 color-green mt-1" aria-hidden="true"></i>
+    </span>
+    &nbsp;/&nbsp;
+    <span class="text-nowrap d-flex align-items-center">
+      {{ pod.receivedBytes - pod.localReceivedBytes | formatBytes }}
+      <i class="fa fa-chevron-down font-size-xxsmall mx-1 color-red mt-1" aria-hidden="true"></i>
+    </span>
+  </div>
+</td>
+
+<!--/ INTERNAL -->
+<td>
+  <div class="d-flex align-items-center cell-inner" *ngIf="!!pod; else emptystateText">
+    <span class="text-nowrap d-flex align-items-center">
+      {{ pod.localTransmitBytes | formatBytes }}
+      <i class="fa fa-chevron-up font-size-xxsmall mx-1 color-green mt-1" aria-hidden="true"></i>
+    </span>
+    &nbsp;/ &nbsp;
+    <span class="text-nowrap d-flex align-items-center">
+      {{ pod.localReceivedBytes | formatBytes }}
+      <i class="fa fa-chevron-down font-size-xxsmall mx-1 color-red mt-1" aria-hidden="true"></i>
+    </span>
+  </div>
+</td>
+
+<!--/ AGE -->
+<td>
+  <div class="d-flex flex-column justify-content-center cell-inner text-nowrap" *ngIf="!!pod; else emptystateText">
+    {{ startTime }} d
+  </div>
+</td>
+
+<!--/ CONNECTIONS -->
+<td>
+  <div class="d-flex flex-column justify-content-center cell-inner" *ngIf="!!pod; else emptystateText">
+    {{ connections }}
+  </div>
+</td>
+
+<!--/ TRAFFIC -->
+<td>
+  <div class="d-flex flex-column justify-content-center cell-inner chart" *ngIf="!!pod; else emptyChart">
+    <lox-dashboard-pod-list-item-chart [key]="key"></lox-dashboard-pod-list-item-chart>
+  </div>
+</td>
+
+<!--/ PSEUDO ELEMENTS -->
+<ng-template #emptystateText>
+  <div class="d-flex flex-column justify-content-center cell-inner">
+    <span class="pseudo-text"></span>
+  </div>
+</ng-template>
+<ng-template #emptyChart>
+  <div class="d-flex flex-column justify-content-center cell-inner chart"><div class="empty-chart"></div></div>
+</ng-template>

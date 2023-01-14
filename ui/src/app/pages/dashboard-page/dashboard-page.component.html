@@ -1,0 +1,20 @@
+<ng-container *ngIf="ready; else loadingTemp">
+  <!--/ HEADLINE AND RAW TOGGLE -->
+  <lox-headline [refreshing]="refreshingOverview"></lox-headline>
+
+  <!--/ OVERVIEW TILES -->
+  <lox-tile-overview class="d-block mb-8"></lox-tile-overview>
+
+  <!--/ POD LIST -->
+  <lox-dashboard-pod-list [refreshing]="refreshingFlow"></lox-dashboard-pod-list>
+</ng-container>
+
+<!--/ EMPTY STATE LOADING OVERLAY -->
+<ng-template #loadingTemp>
+  <div class="overlay d-flex align-items-center justify-content-center flex-column">
+    <img src="assets/logos/logo-single.svg" height="150px" alt="" />
+    <div class="spinner"></div>
+    <span class="d-flex color-deepteal text-uppercase">Loading initial data</span>
+    <span class="color-grey-4 font-size-small mt-2">This can take some seconds</span>
+  </div>
+</ng-template>

@@ -1,0 +1,101 @@
+.color- {
+  &deepteal {
+    color: var(--lox-deepteal);
+  }
+  &mogeniusblue {
+    color: var(--lox-mogeniusblue);
+  }
+  &darkblue {
+    color: var(--lox-darkblue);
+  }
+  &mango {
+    color: var(--lox-mango);
+  }
+  &brightpurple {
+    color: var(--lox-brightpurple);
+  }
+  &gray {
+    color: var(--lox-gray);
+  }
+  &green {
+    color: var(--lox-green);
+  }
+  &red {
+    color: var(--lox-red);
+  }
+  &blue {
+    color: var(--lox-blue);
+  }
+  &grey-1 {
+    color: var(--grey-1);
+  }
+  &grey-2 {
+    color: var(--grey-2);
+  }
+  &grey-3 {
+    color: var(--grey-3);
+  }
+  &grey-4 {
+    color: var(--grey-4);
+  }
+  &grey-5 {
+    color: var(--grey-5) !important;
+  }
+  &grey-6 {
+    color: var(--grey-6) !important;
+  }
+  &grey-7 {
+    color: var(--grey-7) !important;
+  }
+}
+
+.bg- {
+  &lightred {
+    background-color: var(--lox-deepteal);
+  }
+  &darkred {
+    background-color: var(--lox-mogeniusblue);
+  }
+  &darkblue {
+    background-color: var(--lox-darkblue);
+  }
+  &mango {
+    background-color: var(--lox-mango);
+  }
+  &brightpurple {
+    background-color: var(--lox-brightpurple);
+  }
+  &gray {
+    background-color: var(--lox-gray);
+  }
+  &green {
+    background-color: var(--lox-green);
+  }
+  &red {
+    background-color: var(--lox-red);
+  }
+  &blue {
+    background-color: var(--lox-blue);
+  }
+  &grey-1 {
+    background-color: var(--grey-1);
+  }
+  &grey-2 {
+    background-color: var(--grey-2);
+  }
+  &grey-3 {
+    background-color: var(--grey-3);
+  }
+  &grey-4 {
+    background-color: var(--grey-4);
+  }
+  &grey-5 {
+    background-color: var(--grey-5) !important;
+  }
+  &grey-6 {
+    background-color: var(--grey-6) !important;
+  }
+  &grey-7 {
+    background-color: var(--grey-7) !important;
+  }
+}
